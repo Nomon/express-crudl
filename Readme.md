@@ -73,40 +73,42 @@ controller_path
 
 ### .before(req, res, next)
 
-    Middleware that is executed before the routes and before subresources.
+  Middleware that is executed before the routes and before subresources.
 
 ### .create(req, res, next)
 
-    The function executed for CREATE operation, ie POST /name
+  The function executed for CREATE operation, ie POST /name
 
 ### .read(req, res, next)
 
-    The function executed for READ operation, ie GET /name/:name_id
+  The function executed for READ operation, ie GET /name/:name_id
 
 ### .update(req, res, next)
 
-    The function executed for UPDATE operation, ie PUT /name/:name_id
+  The function executed for UPDATE operation, ie PUT /name/:name_id
 
 ### .del(req, res, next)
 
-    The function executed for DELETE operation, ie DELETE /name/:name_id
+  The function executed for DELETE operation, ie DELETE /name/:name_id
 
 ### .list(req, res, next)
 
-    The function executed for LIST operation, ie GET /name
+  The function executed for LIST operation, ie GET /name
 
 ### Variables in controllers
 
 ### .subresources
 
-    Object mapping the subresources in name:module pairs {'name': require('./name')}
+  Object mapping the subresources in name:module pairs {'name': require('./name')}
 
 ### .prefix
 
-    prefix this controller under this path, exports.prefix = '/resource'; exports.name = 'sub';
-    maps the controller to '/resource/:resource_id/sub';
+  prefix this controller under this path, exports.prefix = '/resource'; exports.name = 'sub';
+  maps the controller to '/resource/:resource_id/sub';
 
-### .name overrides the name of the controller, by default the file/directory name is used.
+### .name
+
+  overrides the name of the controller, by default the file/directory name is used.
 
 
 ## Notes
