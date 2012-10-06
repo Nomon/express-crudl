@@ -21,7 +21,8 @@ describe('express-crud', function() {
     });
   });
   after(function(done) {
-    server.close(done);
+    server.close();
+    done();
   });
 
   describe('.controllers', function() {
