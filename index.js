@@ -1,1 +1,1 @@
-module.exports = process.env.EXPRESS_COV ? require('./lib-cov') : require('./lib');
+module.exports = process.env.CRUDL_COV ? require('./lib-cov') : require('./lib');
