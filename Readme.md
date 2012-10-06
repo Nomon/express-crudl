@@ -24,7 +24,7 @@ exports.before = function(req, res, next) {
         req.test = test;
         return next();
       } else {
-        return next(new Error("test "+req.params.test_id+" not found"));
+        return next(error || new Error("test "+req.params.test_id+" not found"));
       }
     });
   } else {
