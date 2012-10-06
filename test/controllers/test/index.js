@@ -6,7 +6,7 @@ exports.subresources = {
 }
 
 exports.before = function(req, res, next) {
-
+  next();
 }
 
 exports.create = function(req, res, next) {
