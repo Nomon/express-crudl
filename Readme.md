@@ -58,8 +58,9 @@ app.set('controller path', __dirname + '/controllers/');
 // Will mount all the controllers to app and print the routes with verbose:true
 express-crudl(app, {verbose: true});
 console.log(app.controllers);
-
 ```
+
+For an example directory structure for controllers see test/controllers
 
 ## Api
 Only has the one method for loading and mounting the routes, express-crudl(app, options);
