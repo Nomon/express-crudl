@@ -5,7 +5,7 @@
 Motivation for the module is to provide simple and consistent structure to controllers handling CREATE, READ, UPDATE, DELETE
 and LIST operations to resources and their subresources.
 
-![Build Status](https://secure.travis-ci.org/Nomon/express-crudl.png)](http://travis-ci.org/Nomon/express-crudl)
+[![Build Status](https://secure.travis-ci.org/Nomon/express-crudl.png)](http://travis-ci.org/Nomon/express-crudl)
 
 
 ## Example controller
@@ -75,6 +75,7 @@ controller_path
 
   Middleware that is executed before the routes and before subresources.
 
+
 ### .create(req, res, next)
 
   The function executed for CREATE operation, ie POST /name
@@ -109,6 +110,7 @@ controller_path
 ### .name
 
   overrides the name of the controller, by default the file/directory name is used.
+
 
 
 ## Notes
