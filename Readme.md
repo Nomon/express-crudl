@@ -16,33 +16,34 @@ exports.name = "test";
 exports.subresources = {
     'subroute': require('./subroute');
 }
+
 exports.before = function(req, res, next) {
-    if(req.params.test_id) {
+  if(req.params.test_id) {
     Tests.load(req.params.test_id, function(error, test) {
-        if(test) {
-            req.test = test;
-            return next();
-        } else {
-            return next(new Error("test "+req.params.test_id+" not found"));
-        }
-    });
-    } else {
+      if(test) {
+        req.test = test;
         return next();
-    }
-}
+      } else {
+        return next(new Error("test "+req.params.test_id+" not found"));
+      }
+    });
+  } else {
+    return next();
+  }
+};
 
 exports.read = function(req, res, next) {
-    res.send(req.test);
+  res.send(req.test);
 };
 
 exports.create = function(req, res, next) {
-    Tests.create(req.body, function(err, test) {
-        if(err) {
-            return next(err);
-        } else {
-            res.send(test);
-        }
-    });
+  Tests.create(req.body, function(err, test) {
+    if(err) {
+      return next(err);
+    } else {
+      res.send(test);
+    }
+  });
 };
 ```
 
