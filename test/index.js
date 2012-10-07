@@ -20,6 +20,8 @@ describe('express-crud', function() {
       done();
     });
   });
+
+
   after(function(done) {
     server.close();
     done();
@@ -32,8 +34,11 @@ describe('express-crud', function() {
       assert.isNotNull(app.controllers, 'Crud adds controllers to applications');
       assert.isNotNull(app.controllers['test'], 'Crud adds controllers to applications');
       assert.isNotNull(app.controllers['subtest'], 'Crud adds controllers to applications');
+      assert.isNotNull(app.controllers['subtest'].error, 'Crud adds error handler from controllers to applications');
+      assert.isTrue(app.controllers['test'].set('jsonp callback'));
     });
   });
+
   describe('routes', function() {
     it('should route requests to correct routes', function(done) {
       var expected = {
@@ -42,7 +47,8 @@ describe('express-crud', function() {
         'PUT /test/1':{"test:":"test 1"},
         'GET /test/1':{"test:":"test 1"},
         'DEL /test/1':{"test:":"test 1 delete"},
-        'GET /test/1/subtest/1': {"subtest:":"subtest 1"}
+        'GET /test/1/subtest/1': {"subtest:":"subtest 1"},
+        'GET /test/1/subtest': {"error":'subtest-error'}
       };
       var numRoutes = Object.keys(expected).length;
       Object.keys(expected).forEach(function(key) {
