@@ -1,7 +1,7 @@
 {
     "name": "express-crudl"
     , "description": "Maps routes to CRUDL controllers for restfull routing"
-    , "version": "0.0.3"
+    , "version": "0.0.4"
     , "author": "Matti Savolainen <matti@applifier.com>"
     , "keywords": ["express", "crud", "controller", "rest"]
     , "homepage": "https://github.com/Nomon/express-crudl"
