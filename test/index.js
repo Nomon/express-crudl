@@ -64,7 +64,10 @@ describe('express-crud', function() {
     });
     it('should set options to the controller app', function() {
       assert.isTrue(app.controllers['test'].set('jsonp callback'));
+      assert.isFalse(app.controllers['subtest'].set('jsonp callback'));
+      assert.equal(app.controllers['subtest'].set('view engine'), 'ejs');
     });
+
     it('should set the error handler to controller app', function() {
       assert.isNotNull(app.controllers['subtest'].error, 'Crud adds error handler from controllers to applications');
     })
