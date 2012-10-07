@@ -34,8 +34,6 @@ describe('express-crud', function() {
       assert.isNotNull(app.controllers, 'Crud adds controllers to applications');
       assert.isNotNull(app.controllers['test'], 'Crud adds controllers to applications');
       assert.isNotNull(app.controllers['subtest'], 'Crud adds controllers to applications');
-      assert.isNotNull(app.controllers['subtest'].error, 'Crud adds error handler from controllers to applications');
-      assert.isTrue(app.controllers['test'].set('jsonp callback'));
     });
   });
 
@@ -64,5 +62,11 @@ describe('express-crud', function() {
         });
       });
     });
+    it('should set options to the controller app', function() {
+      assert.isTrue(app.controllers['test'].set('jsonp callback'));
+    });
+    it('should set the error handler to controller app', function() {
+      assert.isNotNull(app.controllers['subtest'].error, 'Crud adds error handler from controllers to applications');
+    })
   });
 });
