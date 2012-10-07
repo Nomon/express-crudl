@@ -14,7 +14,7 @@ and LIST operations to resources and their subresources.
 
 exports.name = "test";
 exports.subresources = {
-    'subroute': require('./subroute');
+    'subroute': require('./subroute')
 }
 
 exports.before = function(req, res, next) {
@@ -51,12 +51,12 @@ And to use the controllers:
 
 ```js
 var express = require('express')
-  , express-crudl = require('express-crudl');
+  , crudl = require('express-crudl');
 
 var app = express();
 app.set('controller path', __dirname + '/controllers/');
 // Will mount all the controllers to app and print the routes with verbose:true
-express-crudl(app, {verbose: true});
+crudl(app, {verbose: true});
 console.log(app.controllers);
 ```
 
@@ -75,6 +75,9 @@ controller_path
 
   Middleware that is executed before the routes and before subresources.
 
+### .error(error, req, res, next)
+
+  Error handler for the route, if you want to have controller specific error handler.
 
 ### .create(req, res, next)
 
@@ -110,6 +113,10 @@ controller_path
 ### .name
 
   overrides the name of the controller, by default the file/directory name is used.
+
+### .options
+
+  options are .set(key, value) to the app created for handling the routes.
 
 
 
