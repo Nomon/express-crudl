@@ -17,14 +17,14 @@ exports.subresources = {
     'subroute': require('./subroute')
 }
 
-exports.before = function(req, res, next) {
-  if(req.params.test_id) {
-    Tests.load(req.params.test_id, function(error, test) {
+exports.before = function(req, res, next, id) {
+  if(id) {
+    Tests.load(id, function(error, test) {
       if(test) {
         req.test = test;
         return next();
       } else {
-        return next(error || new Error("test "+req.params.test_id+" not found"));
+        return next(error || new Error("test "+id+" not found"));
       }
     });
   } else {
